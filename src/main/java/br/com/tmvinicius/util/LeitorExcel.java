@@ -14,7 +14,7 @@ import java.util.List;
 
 public class LeitorExcel {
 
-    //Alterar metodo criar para informar as colunas a serem visualizadas
+    //Mudança futura: Alterar metodo criar para informar as colunas a serem visualizadas pelo programa
     public List<NotaFiscal> criar() throws IOException {
 
         List<NotaFiscal> RegistroNFs = new ArrayList<>();
@@ -40,7 +40,7 @@ public class LeitorExcel {
             Cell cellNumeroNF = linha.getCell(4, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
 
             if (cellNumeroNF.getCellType() == CellType.BLANK) {
-                return; // ignora essa linha
+                return;
             }
 
             //Atribuiu os valores da classe NotaFiscal

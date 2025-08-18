@@ -2,21 +2,24 @@ package br.com.tmvinicius;
 
 
 import br.com.tmvinicius.model.NotaFiscal;
+import br.com.tmvinicius.service.ComparadorService;
 import br.com.tmvinicius.util.LeitorExcel;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
         LeitorExcel leitor = new LeitorExcel();
 
-        List<NotaFiscal> notas = leitor.criar();
+        List<NotaFiscal> planilhaBrut = leitor.criar();
 
-        System.out.print(notas.get(0));
+        ComparadorService con = new ComparadorService();
 
+        Map duplicados = con.consolidarDuplicidades(planilhaBrut);
 
+        con.imprimirMap(duplicados);
 
 
     }
